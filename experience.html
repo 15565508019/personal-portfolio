@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人经历 - CJF个人主页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <a href="index.html" class="logo">CJF</a>
+            <div class="main-nav">
+                <a href="about.html">个人信息</a>
+                <a href="experience.html" class="active">个人经历</a>
+                <a href="gallery.html">图文作品</a>
+                <a href="videos.html">影像作品</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="timeline-container">
+            <h1 class="page-title">我的经历</h1>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>经历标题</h3>
+                        <p>在这里详细描述这段经历...</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <h3>经历标题</h3>
+                        <p>在这里详细描述这段经历...</p>
+                    </div>
+                </div>
+                <!-- 可以继续添加更多经历 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- LeanCloud SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
+    <!-- LeanCloud 配置 -->
+    <script src="leancloud-config.js"></script>
+    <!-- 页面脚本 -->
+    <script src="experience.js"></script>
+</body>
+</html> 

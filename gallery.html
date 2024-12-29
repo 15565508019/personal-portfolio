@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图文作品 - CJF个人主页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <a href="index.html" class="logo">CJF</a>
+            <div class="main-nav">
+                <a href="about.html">个人信息</a>
+                <a href="experience.html">个人经历</a>
+                <a href="gallery.html" class="active">图文作品</a>
+                <a href="videos.html">影像作品</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content gallery-page">
+        <div class="content-container">
+            <div class="gallery-header">
+                <h1>图文作品</h1>
+                <button id="addWork" class="add-button">添加作品</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- 作品将通过JavaScript动态添加 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 添加/编辑作品弹窗 -->
+    <div id="workModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">添加作品</h2>
+            <form id="workForm">
+                <div class="form-group">
+                    <label for="workTitle">作品标题</label>
+                    <input type="text" id="workTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="workDescription">作品描述</label>
+                    <textarea id="workDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="workImage">作品图片</label>
+                    <input type="file" id="workImage" accept="image/*" required>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+                <div class="form-group">
+                    <label for="workDate">创作日期</label>
+                    <input type="date" id="workDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="workTags">标签（用逗号分隔）</label>
+                    <input type="text" id="workTags" placeholder="例如：设计,摄影,艺术">
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" id="saveWork">保存</button>
+                    <button type="button" id="cancelWork">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 作品详情弹窗 -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content detail-content">
+            <span class="close-button" id="closeDetail">&times;</span>
+            <div id="workDetail"></div>
+        </div>
+    </div>
+
+    <!-- LeanCloud SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
+    <!-- LeanCloud 配置 -->
+    <script src="leancloud-config.js"></script>
+    <!-- 页面脚本 -->
+    <script src="gallery.js"></script>
+</body>
+</html> 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影像作品 - CJF个人主页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <a href="index.html" class="logo">CJF</a>
+            <div class="main-nav">
+                <a href="about.html">个人信息</a>
+                <a href="experience.html">个人经历</a>
+                <a href="gallery.html">图文作品</a>
+                <a href="videos.html" class="active">影像作品</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <div class="videos-container">
+            <div class="gallery-header">
+                <h1 class="page-title">影像作品集</h1>
+                <button class="add-button" id="addVideo">添加视频</button>
+            </div>
+            <div class="videos-grid" id="videosGrid">
+                <!-- 视频会在这里动态添加 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 视频播放弹窗 -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="video-player">
+                <video controls>
+                    <source src="" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑视频弹窗 -->
+    <div id="editVideoModal" class="edit-modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">添加视频</h3>
+            <form id="videoForm">
+                <div class="form-group">
+                    <label for="videoTitle">视频标题</label>
+                    <input type="text" id="videoTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="videoDesc">视频描述</label>
+                    <textarea id="videoDesc" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="videoDuration">视频时长（格式：MM:SS）</label>
+                    <input type="text" id="videoDuration" pattern="[0-9]{2}:[0-9]{2}" placeholder="03:45" required>
+                </div>
+                <div class="form-group">
+                    <label for="videoThumbnail">视频缩略图</label>
+                    <input type="file" id="videoThumbnail" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="videoFile">视频文件（MP4格式）</label>
+                    <input type="file" id="videoFile" accept="video/mp4" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit">保存</button>
+                    <button type="button" id="cancelVideo">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- LeanCloud SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
+    <!-- LeanCloud 配置 -->
+    <script src="leancloud-config.js"></script>
+    <!-- 页面脚本 -->
+    <script src="videos.js"></script>
+</body>
+</html> 

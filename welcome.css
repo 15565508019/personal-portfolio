@@ -1,0 +1,243 @@
+/* 基础样式 */
+:root {
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.9);
+    --nav-bg: rgba(255, 255, 255, 0.12);
+    --nav-border: rgba(255, 255, 255, 0.25);
+    --nav-hover-bg: rgba(255, 255, 255, 0.18);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: var(--text-primary);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+    transition: filter 0.5s ease;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(255, 100, 100, 0.15), 
+        rgba(100, 100, 255, 0.15));
+    z-index: 2;
+}
+
+/* 欢迎页布局 */
+.welcome-page {
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+/* 时间显示 */
+.time-display {
+    position: fixed;
+    top: 4rem;
+    left: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.date {
+    font-size: 2rem;
+    color: var(--text-primary);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4),
+                 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 欢迎内容 */
+.welcome-content {
+    margin: auto;
+    max-width: 1200px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.welcome-title {
+    margin-bottom: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-title .cn {
+    display: block;
+    font-size: 4.5rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease;
+    text-shadow: 0 2px 4px var(--shadow-color),
+                 0 4px 8px rgba(0, 0, 0, 0.2),
+                 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-title .en {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    animation: fadeIn 1s ease 0.3s both;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* 导航菜单 */
+.main-nav {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 4rem;
+    justify-content: center;
+}
+
+.main-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 1.2rem 3rem;
+    background: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 1s ease both;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+    position: relative;
+    z-index: 1;
+}
+
+.main-nav a:hover {
+    background: var(--nav-hover-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-nav a:active {
+    transform: translateY(-1px);
+}
+
+/* 当导航链接被点击时，添加背景模糊效果 */
+.main-nav a:focus + body::before {
+    filter: none;
+}
+
+/* 添加新的背景模糊效果 */
+.main-nav a:focus {
+    outline: none;
+}
+
+body.nav-clicked::before {
+    filter: blur(5px);
+}
+
+/* 诗句 */
+.poem {
+    position: fixed;
+    bottom: 4rem;
+    left: 4rem;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    animation: fadeIn 1s ease 0.9s both;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4),
+                 0 4px 12px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .welcome-page {
+        padding: 2rem;
+    }
+
+    .time-display {
+        top: 2rem;
+        left: 2rem;
+        padding: 1rem 0.8rem;
+    }
+
+    .date {
+        font-size: 1.6rem;
+    }
+
+    .welcome-content {
+        padding: 1rem;
+    }
+
+    .welcome-title .cn {
+        font-size: 3.2rem;
+    }
+
+    .welcome-title .en {
+        font-size: 1.2rem;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    .main-nav a {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+
+    .poem {
+        bottom: 2rem;
+        left: 2rem;
+        font-size: 1.1rem;
+    }
+} 

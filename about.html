@@ -3,83 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <meta http-equiv="Access-Control-Allow-Methods" content="GET, POST, PUT, DELETE, OPTIONS">
-    <meta http-equiv="Access-Control-Allow-Headers" content="Origin, X-Requested-With, Content-Type, Accept">
-    <title>个人信息 - CJF个人主页</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>个人信息 - CJF的个人空间</title>
+    <link rel="stylesheet" href="about.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <nav class="header-nav">
-            <a href="index.html" class="logo">CJF</a>
-            <div class="main-nav">
+    <nav class="header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="ri-home-4-line"></i>
+                <span>首页</span>
+            </a>
+            <div class="nav-links">
                 <a href="about.html" class="active">个人信息</a>
-                <a href="experience.html">个人经历</a>
+                <a href="experience.html">工作经历</a>
                 <a href="gallery.html">图文作品</a>
                 <a href="videos.html">影像作品</a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main class="page-content">
-        <div class="profile-container">
-            <div class="profile-header">
-                <div class="profile-avatar">
-                    <img id="avatar" src="avatar.jpg" alt="个人头像">
-                    <button class="edit-button" id="editAvatar">更换头像</button>
-                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+    <div class="page-container">
+        <div class="content-section">
+            <h2 class="section-title">技能优势</h2>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>硬件能力</h3>
+                    <ul class="skill-items">
+                        <li>熟练掌握索尼A7系列、FS7电影机、ZCAM、BMPCC4等机型的使用方法，能根据不同场景的需求灵活调整；相机和手机拍摄能力兼具</li>
+                        <li>熟练使用稳定器、滑轨、灯光等影视配件，熟练掌握不同场景的灯光布置技巧，如棚拍、室外和夜间拍摄时的光源和光线控制方法</li>
+                        <li>掌握大疆无人机操作技巧，能独立完成航拍任务，有成熟的航拍技巧和拍摄能力</li>
+                    </ul>
                 </div>
-                <div class="profile-info">
-                    <div class="info-group">
-                        <h1 id="userName">CJF</h1>
-                        <button class="edit-button" id="editName">编辑</button>
-                    </div>
-                    <div class="info-group">
-                        <p id="userTitle" class="profile-title">职业头衔 / 身份</p>
-                        <button class="edit-button" id="editTitle">编辑</button>
-                    </div>
+                <div class="skill-category">
+                    <h3>软件优势</h3>
+                    <ul class="skill-items">
+                        <li>熟练掌握PR、剪映、AE、PS等视频后期制作软件</li>
+                        <li>熟练掌握DaVinci Resolve 专业调色软件，掌握产品、人像的后期调色技巧</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="profile-details">
-                <section class="info-section">
-                    <div class="section-header">
-                        <h2>关于我</h2>
-                        <button class="edit-button" id="editAbout">编辑</button>
-                    </div>
-                    <p id="aboutMe">在这里添加个人简介...</p>
-                </section>
-                <section class="info-section">
-                    <div class="section-header">
-                        <h2>专业技能</h2>
-                        <button class="edit-button" id="addSkill">添加技能</button>
-                    </div>
-                    <div id="skillsGrid" class="skills-grid">
-                        <!-- 技能标签会在这里动态添加 -->
-                    </div>
-                </section>
+                <div class="skill-category">
+                    <h3>综合优势</h3>
+                    <ul class="skill-items">
+                        <li>【行业背景】3年的媒体从业经验、擅长拍摄剪辑，熟悉视频制作流程，有团队管理经验</li>
+                        <li>【平台优势】曾完成600+条视频拍摄剪辑，协助卖点提炼，根据店铺需求创作短视频脚本和拍摄计划，高效产出视频</li>
+                        <li>【综合素质】编拍剪能力兼具，善于沟通理解，擅长创意表达落地</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </main>
 
-    <!-- 编辑弹窗 -->
-    <div id="editModal" class="edit-modal">
-        <div class="modal-content">
-            <h3 id="modalTitle">编辑信息</h3>
-            <input type="text" id="editInput" class="edit-input">
-            <textarea id="editTextarea" class="edit-textarea"></textarea>
-            <div class="modal-buttons">
-                <button id="saveEdit">保存</button>
-                <button id="cancelEdit">取消</button>
+        <div class="content-section">
+            <h2 class="section-title">工作经历</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company-name">杭州大希地科技股份有限公司</span>
+                    <span class="work-period">2023.10-至今</span>
+                </div>
+                <div class="job-title">摄影师</div>
+                <div class="work-description">
+                    <p>工作描述：</p>
+                    <ul class="achievements">
+                        <li>负责抖音平台官方店铺视频拍摄，负责场景搭建、拍摄执行、后期制作等流程，视频类型包括千川广告、账号主页视频、直播预热视频、工厂溯源等类型</li>
+                        <li>为公司新品提供短视频支持，协同编导完成创意策划，独立统筹拍摄过程，把控视频内容呈现效果</li>
+                    </ul>
+                    <p>主要业绩：</p>
+                    <ul class="achievements">
+                        <li>完成五款新品短视频数据测试，成功打造玉米浆包、牛肉馅饼、无抗鸡排等爆品</li>
+                        <li>月交付80条种草信息流视频项目，完成季度销售额200w</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="company-name">北京交个朋友数码科技有限公司</span>
+                    <span class="work-period">2023.1-2023.10</span>
+                </div>
+                <div class="job-title">摄影师/短视频运营</div>
+                <div class="work-description">
+                    <p>工作描述：</p>
+                    <ul class="achievements">
+                        <li>负责多个知名品牌和平台（百度优选、农夫山泉、空刻意面、抖音电商官方直播间）的视频制作，满足日常直播需求</li>
+                        <li>参与拍摄的创意策划和数据分析，输出不同品类视频制作方法论，提升视频产出及团队协同效率</li>
+                    </ul>
+                    <p>主要业绩：</p>
+                    <ul class="achievements">
+                        <li>创作多个爆款视频，为客户带来了高效的流量转化和销售业绩，如百度优选的20多个百万播放视频，空刻意面的单场直播GMV80万（视频占比40%）的视频等</li>
+                        <li>参与完成优可舒品牌-月交付250条种草信息流视频项目，月产出视频150+</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- LeanCloud SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
-    <!-- LeanCloud 配置 -->
-    <script src="leancloud-config.js"></script>
-    <!-- 页面脚本 -->
-    <script src="about.js"></script>
 </body>
 </html> 

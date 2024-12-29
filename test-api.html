@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LeanCloud API 测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
+</head>
+<body>
+    <h2>LeanCloud API 测试</h2>
+    <div id="result"></div>
+    <script>
+        // 初始化 LeanCloud
+        AV.init({
+            appId: 'Rmjt9JQI4XIFDWolH1dBHMrx-MdYXbMMI',
+            appKey: 'QrB3uDAPxhmzPQKlGiVVcRuw',
+            serverURL: 'https://rmjt9jqi.api.lncldglobal.com'
+        });
+
+        // 显示结果的函数
+        function showResult(message) {
+            document.getElementById('result').innerHTML += message + '<br>';
+        }
+
+        // 创建数据
+        async function createProfile() {
+            try {
+                const Profile = AV.Object.extend('Profile');
+                const profile = new Profile();
+                
+                profile.set({
+                    name: "陈大家",
+                    title: "个人简历",
+                    bio: "这里是个人简介",
+                    avatar: "",
+                    skills: ["HTML", "CSS", "JavaScript"]
+                });
+
+                profile.setACL(new AV.ACL({
+                    '*': {
+                        read: true,
+                        write: true
+                    }
+                }));
+
+                const result = await profile.save();
+                showResult('成功：' + JSON.stringify(result.toJSON()));
+            } catch (error) {
+                showResult('错误：' + JSON.stringify(error));
+            }
+        }
+
+        // 执行创建
+        createProfile();
+    </script>
+</body>
+</html> 

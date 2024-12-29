@@ -1,84 +1,168 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>图文作品 - CJF个人主页</title>
+    <title>图文作品 - CJF的个人简历</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
-        <nav class="header-nav">
-            <a href="index.html" class="logo">CJF</a>
-            <div class="main-nav">
-                <a href="about.html">个人信息</a>
-                <a href="experience.html">个人经历</a>
-                <a href="gallery.html" class="active">图文作品</a>
-                <a href="videos.html">影像作品</a>
-            </div>
+        <nav class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="ri-camera-lens-fill"></i>
+                <span>CJF</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">个人信息</a></li>
+                <li><a href="experience.html">工作经历</a></li>
+                <li><a href="gallery.html" class="active">图文作品</a></li>
+                <li><a href="videos.html">影像作品</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="page-content gallery-page">
-        <div class="content-container">
-            <div class="gallery-header">
-                <h1>图文作品</h1>
-                <button id="addWork" class="add-button">添加作品</button>
-            </div>
+    <div class="page-container">
+        <div class="gallery-layout">
+            <!-- 左侧分类菜单 -->
+            <aside class="category-menu">
+                <h2>作品分类</h2>
+                <ul class="category-list">
+                    <li class="active" data-category="portrait">
+                        <i class="ri-user-smile-line"></i>
+                        人像摄影
+                    </li>
+                    <li data-category="space">
+                        <i class="ri-building-line"></i>
+                        空间摄影
+                    </li>
+                    <li data-category="landscape">
+                        <i class="ri-landscape-line"></i>
+                        风光摄影
+                    </li>
+                    <li data-category="still-life">
+                        <i class="ri-plant-line"></i>
+                        静物摄影
+                    </li>
+                    <li data-category="product">
+                        <i class="ri-shopping-bag-line"></i>
+                        产品摄影
+                    </li>
+                </ul>
+            </aside>
 
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- 作品将通过JavaScript动态添加 -->
-            </div>
-        </div>
-    </main>
-
-    <!-- 添加/编辑作品弹窗 -->
-    <div id="workModal" class="modal">
-        <div class="modal-content">
-            <h2 id="modalTitle">添加作品</h2>
-            <form id="workForm">
-                <div class="form-group">
-                    <label for="workTitle">作品标题</label>
-                    <input type="text" id="workTitle" required>
+            <!-- 右侧图片网格 -->
+            <main class="gallery-content">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- 图片项将通过JavaScript动态加载 -->
                 </div>
-                <div class="form-group">
-                    <label for="workDescription">作品描述</label>
-                    <textarea id="workDescription" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="workImage">作品图片</label>
-                    <input type="file" id="workImage" accept="image/*" required>
-                    <div id="imagePreview" class="image-preview"></div>
-                </div>
-                <div class="form-group">
-                    <label for="workDate">创作日期</label>
-                    <input type="date" id="workDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="workTags">标签（用逗号分隔）</label>
-                    <input type="text" id="workTags" placeholder="例如：设计,摄影,艺术">
-                </div>
-                <div class="modal-buttons">
-                    <button type="submit" id="saveWork">保存</button>
-                    <button type="button" id="cancelWork">取消</button>
-                </div>
-            </form>
+            </main>
         </div>
     </div>
 
-    <!-- 作品详情弹窗 -->
-    <div id="detailModal" class="modal">
-        <div class="modal-content detail-content">
-            <span class="close-button" id="closeDetail">&times;</span>
-            <div id="workDetail"></div>
-        </div>
-    </div>
+    <script>
+        // 模拟图片数据
+        const galleryData = {
+            portrait: [
+                { url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2', title: '人像摄影作品1' },
+                { url: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04', title: '人像摄影作品2' },
+                { url: 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126', title: '人像摄影作品3' },
+                { url: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d', title: '人像摄影作品4' },
+                { url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb', title: '人像摄影作品5' },
+                { url: 'https://images.unsplash.com/photo-1521119989659-a83eee488004', title: '人像摄影作品6' },
+                { url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e', title: '人像摄影作品7' },
+                { url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d', title: '人像摄影作品8' },
+                { url: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce', title: '人像摄影作品9' }
+            ],
+            space: [
+                { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c', title: '空间摄影作品1' },
+                { url: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e', title: '空间摄影作品2' },
+                { url: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a', title: '空间摄影作品3' },
+                { url: 'https://images.unsplash.com/photo-1616137466211-f939a420be84', title: '空间摄影作品4' },
+                { url: 'https://images.unsplash.com/photo-1618219740975-d40978bb7378', title: '空间摄影作品5' },
+                { url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace', title: '空间摄影作品6' },
+                { url: 'https://images.unsplash.com/photo-1616137466211-f939a420be84', title: '空间摄影作品7' },
+                { url: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a', title: '空间摄影作品8' },
+                { url: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e', title: '空间摄影作品9' }
+            ],
+            landscape: [
+                { url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb', title: '风光摄影作品1' },
+                { url: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6', title: '风光摄影作品2' },
+                { url: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e', title: '风光摄影作品3' },
+                { url: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470', title: '风光摄影作品4' },
+                { url: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae', title: '风光摄影作品5' },
+                { url: 'https://images.unsplash.com/photo-1439853949127-fa647821eba0', title: '风光摄影作品6' },
+                { url: 'https://images.unsplash.com/photo-1455218873509-8097305ee378', title: '风光摄影作品7' },
+                { url: 'https://images.unsplash.com/photo-1434394354979-a235cd36269d', title: '风光摄影作品8' },
+                { url: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e', title: '风光摄影作品9' }
+            ],
+            'still-life': [
+                { url: 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1', title: '静物摄影作品1' },
+                { url: 'https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c', title: '静物摄影作品2' },
+                { url: 'https://images.unsplash.com/photo-1563089145-599997674d42', title: '静物摄影作品3' },
+                { url: 'https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2', title: '静物摄影作品4' },
+                { url: 'https://images.unsplash.com/photo-1562690868-60bbe7293e94', title: '静物摄影作品5' },
+                { url: 'https://images.unsplash.com/photo-1560343090-f0409e92791a', title: '静物摄影作品6' },
+                { url: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc', title: '静物摄影作品7' },
+                { url: 'https://images.unsplash.com/photo-1563089145-599997674d42', title: '静物摄影作品8' },
+                { url: 'https://images.unsplash.com/photo-1587563871167-1ee9c731aefb', title: '静物摄影作品9' }
+            ],
+            product: [
+                { url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30', title: '产品摄影作品1' },
+                { url: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f', title: '产品摄影作品2' },
+                { url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff', title: '产品摄影作品3' },
+                { url: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77', title: '产品摄影作品4' },
+                { url: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad', title: '产品摄影作品5' },
+                { url: 'https://images.unsplash.com/photo-1560343090-f0409e92791a', title: '产品摄影作品6' },
+                { url: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d', title: '产品摄影作品7' },
+                { url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e', title: '产品摄影作品8' },
+                { url: 'https://images.unsplash.com/photo-1503602642458-232111445657', title: '产品摄影作品9' }
+            ]
+        };
 
-    <!-- LeanCloud SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
-    <!-- LeanCloud 配置 -->
-    <script src="leancloud-config.js"></script>
-    <!-- 页面脚本 -->
-    <script src="gallery.js"></script>
+        // 加载指定分类的图片
+        function loadGallery(category) {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const images = galleryData[category];
+            
+            galleryGrid.innerHTML = '';
+            
+            images.forEach(image => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                const optimizedUrl = `${image.url}?auto=format&fit=crop&w=500&q=80`;
+                item.innerHTML = `
+                    <img src="${optimizedUrl}" alt="${image.title}">
+                    <div class="gallery-item-overlay">
+                        <h3>${image.title}</h3>
+                    </div>
+                `;
+                galleryGrid.appendChild(item);
+            });
+        }
+
+        // 切换分类
+        document.querySelectorAll('.category-list li').forEach(item => {
+            item.addEventListener('click', () => {
+                // 移除其他分类的active类
+                document.querySelectorAll('.category-list li').forEach(li => {
+                    li.classList.remove('active');
+                });
+                
+                // 添加active类到当前分类
+                item.classList.add('active');
+                
+                // 加载对应分类的图片
+                const category = item.dataset.category;
+                loadGallery(category);
+            });
+        });
+
+        // 初始加载人像摄影分类
+        loadGallery('portrait');
+    </script>
 </body>
 </html> 

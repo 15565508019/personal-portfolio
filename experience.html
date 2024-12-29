@@ -1,54 +1,150 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人经历 - CJF个人主页</title>
+    <title>工作经历 - CJF的个人简历</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="experience.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/remixicon/3.5.0/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
-        <nav class="header-nav">
-            <a href="index.html" class="logo">CJF</a>
-            <div class="main-nav">
-                <a href="about.html">个人信息</a>
-                <a href="experience.html" class="active">个人经历</a>
-                <a href="gallery.html">图文作品</a>
-                <a href="videos.html">影像作品</a>
-            </div>
+        <nav class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="ri-home-4-line"></i>
+                首页
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">个人信息</a></li>
+                <li><a href="experience.html" class="active">工作经历</a></li>
+                <li><a href="gallery.html">图文作品</a></li>
+                <li><a href="videos.html">影像作品</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="page-content">
-        <div class="timeline-container">
-            <h1 class="page-title">我的经历</h1>
+    <div class="page-container">
+        <section class="skills-section">
+            <h2 class="section-title">技能优势</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="ri-camera-lens-line"></i>
+                        <h3>硬件能力</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>熟练掌握多种摄影设备操作</li>
+                        <li>精通灯光布置技巧</li>
+                        <li>掌握无人机操作技术</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="ri-movie-2-line"></i>
+                        <h3>软件能力</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>熟练使用PR视频剪辑软件</li>
+                        <li>精通AE特效制作</li>
+                        <li>掌握DaVinci Resolve调色技术</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <i class="ri-award-line"></i>
+                        <h3>综合优势</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li>3年媒体从业经验</li>
+                        <li>擅长拍摄剪辑</li>
+                        <li>完成600+条视频项目</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section">
+            <h2 class="section-title">工作经历</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023</div>
                     <div class="timeline-content">
-                        <h3>经历标题</h3>
-                        <p>在这里详细描述这段经历...</p>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <h3 class="company">杭州大希地科技股份有限公司</h3>
+                                <span class="period">2022.06 - 至今</span>
+                            </div>
+                            <div class="position">摄影师</div>
+                            <div class="description">
+                                <h4>工作职责</h4>
+                                <ul>
+                                    <li>负责公司产品视频拍摄和后期制作</li>
+                                    <li>参与品牌形象视频策划和制作</li>
+                                    <li>完成公司活动、会议等现场拍摄工作</li>
+                                </ul>
+                                <h4>主要成就</h4>
+                                <ul>
+                                    <li>独立完成300+条产品宣传视频</li>
+                                    <li>优化视频制作流程，提高30%工作效率</li>
+                                    <li>作品在抖音等平台获得高播放量</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022</div>
                     <div class="timeline-content">
-                        <h3>经历标题</h3>
-                        <p>在这里详细描述这段经历...</p>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <h3 class="company">北京交个朋友数码科技有限公司</h3>
+                                <span class="period">2020.07 - 2022.05</span>
+                            </div>
+                            <div class="position">摄影师</div>
+                            <div class="description">
+                                <h4>工作职责</h4>
+                                <ul>
+                                    <li>负责短视频内容拍摄和剪辑</li>
+                                    <li>参与视频内容策划和创意设计</li>
+                                    <li>协助团队完成大型活动拍摄</li>
+                                </ul>
+                                <h4>主要成就</h4>
+                                <ul>
+                                    <li>完成200+条短视频作品</li>
+                                    <li>建立标准化视频制作流程</li>
+                                    <li>多个作品获得百万级播放量</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- 可以继续添加更多经历 -->
             </div>
-        </div>
-    </main>
+        </section>
+    </div>
 
-    <!-- LeanCloud SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.15.0/dist/av-min.js"></script>
-    <!-- LeanCloud 配置 -->
-    <script src="leancloud-config.js"></script>
-    <!-- 页面脚本 -->
-    <script src="experience.js"></script>
+    <script>
+        // 添加滚动动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.skill-card, .experience-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            observer.observe(card);
+        });
+    </script>
 </body>
-</html> 
+</html>
